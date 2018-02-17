@@ -2,6 +2,7 @@ import json
 import logging
 import re
 import requests
+import time
 
 
 class RelateGroupsPlugin(object):
@@ -10,6 +11,7 @@ class RelateGroupsPlugin(object):
         self._api = api
 
     def on_room_directory_association_created(self, event):
+        time.sleep(5)  # Hack to avoid conflicting with riot
         groups = []
         access_token = ""
         for r, c in self._config['groups'].iteritems():
