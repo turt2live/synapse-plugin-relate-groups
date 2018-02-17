@@ -48,12 +48,12 @@ class RelateGroupsPlugin(object):
     def parse_config(config):
         if not config['homeserver_url']:
             raise ValueError("Missing homeserver url")
-        if not config['groups']:
-            raise ValueError("Missing group configuration")
 
         remapped = {}
         expressions = {}
         for group_id, c in config:
+            if group_id == 'homeserver_url':
+                continue
             if not c['aliases']:
                 raise ValueError('Missing aliases for %s' % group_id)
             if not c['access_token']:
