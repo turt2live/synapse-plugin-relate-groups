@@ -37,7 +37,7 @@ class RelateGroupsPlugin(object):
 
         logging.info("[Groups Plugin] Setting groups for " + event['room_alias'] + " to %r", current_groups)
         response = requests.request(
-            "POST", self._config['homeserver_url'] + "/_matrix/client/r0/rooms/" + event['room_id'] + "/state/m.room.related_groups",
+            "PUT", self._config['homeserver_url'] + "/_matrix/client/r0/rooms/" + event['room_id'] + "/state/m.room.related_groups",
             params={"access_token": access_token},
             headers={"Content-Type": "application/json"},
             data={"groups": current_groups},
