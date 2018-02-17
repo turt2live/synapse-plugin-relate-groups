@@ -1,3 +1,4 @@
+import json
 import logging
 import re
 import requests
@@ -40,7 +41,7 @@ class RelateGroupsPlugin(object):
             "PUT", self._config['homeserver_url'] + "/_matrix/client/r0/rooms/" + event['room_id'] + "/state/m.room.related_groups",
             params={"access_token": access_token},
             headers={"Content-Type": "application/json"},
-            data={"groups": current_groups},
+            data=json.dumps({"groups": current_groups}),
         )
         logging.info("[Groups Plugin] Status code for update: %d" % response.status_code)
 
