@@ -14,7 +14,8 @@ internal_api_plugins:
 - module: synapse_plugin_relate_groups.RelateGroupsPlugin
   config:
     homeserver_url: 'http://localhost:8008'
-    '+discord:t2bot.io':
+    groups: 
+    - group_id: '+discord:t2bot.io':
       aliases: ['#_discord.*']
       access_token: 'your_token_here' # The access token of the user to update m.room.related_groups with
 ```
