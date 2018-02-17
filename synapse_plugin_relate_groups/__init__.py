@@ -53,7 +53,7 @@ class RelateGroupsPlugin(object):
 
         remapped = {}
         expressions = {}
-        for c in config['groups'].iteritems():
+        for c in config['groups']:
             if "group_id" not in c:
                 raise ValueError('Missing group ID')
             if "aliases" not in c:
