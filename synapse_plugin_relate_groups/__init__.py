@@ -11,9 +11,9 @@ class RelateGroupsPlugin(object):
     def on_room_directory_association_created(self, event):
         groups = []
         access_token = ""
-        for r, c in self._config['groups']:
+        for r, c in self._config['groups'].iteritems():
             if r.match(event['room_alias']):
-                for group_id, token in c:
+                for group_id, token in c.iteritems():
                     access_token = token
                     groups.append(group_id)
 
@@ -53,7 +53,7 @@ class RelateGroupsPlugin(object):
 
         remapped = {}
         expressions = {}
-        for c in config['groups']:
+        for c in config['groups'].iteritems():
             if "group_id" not in c:
                 raise ValueError('Missing group ID')
             if "aliases" not in c:
@@ -63,12 +63,10 @@ class RelateGroupsPlugin(object):
 
             for alias in c['aliases']:
                 obj = {}
-                r = None
+                r = re.compile(alias)
                 if alias in expressions:
                     r = expressions[alias]
                     obj = remapped[r]
-                else:
-                    r = re.compile(alias)
                 obj[c['group_id']] = c['access_token']
                 remapped[r] = obj
 
