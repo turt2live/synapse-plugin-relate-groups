@@ -4,7 +4,7 @@ A synapse plugin to automatically add a given group to rooms with a given alias.
 # Install
 
 * In the same virtualenv as synapse: `pip install https://github.com/turt2live/synapse-plugin-relate-groups/tarball/master`
-* Patch synapse to include `https://github.com/matrix-org/synapse/pull/2870`
+* Patch synapse to include [matrix-org/synapse#2870](https://github.com/matrix-org/synapse/pull/2870)
 
 # Usage
 
