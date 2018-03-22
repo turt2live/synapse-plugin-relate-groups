@@ -1,9 +1,10 @@
 # synapse-plugin-relate-groups
-A synapse plugin to automatically add a given group to rooms with a given alias
+A synapse plugin to automatically add a given group to rooms with a given alias. For help setting this up, please visit [#help:t2bot.io](https://matrix.to/#/#help:t2bot.io).
 
 # Install
 
-`pip install https://github.com/turt2live/synapse-plugin-relate-groups/tarball/master`
+* In the same virtualenv as synapse: `pip install https://github.com/turt2live/synapse-plugin-relate-groups/tarball/master`
+* Patch synapse to include `https://github.com/matrix-org/synapse/pull/2870`
 
 # Usage
 
